@@ -6,7 +6,7 @@ module.exports = {
     },
     {
       name: "socket-chat-web",
-      script: "cd web && npm run dev",
+      script: "cd web && npm run dev -- --host",
     },
   ],
 };
