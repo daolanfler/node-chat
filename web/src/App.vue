@@ -54,7 +54,7 @@ const socketId = ref<string>("");
 
 const curName = ref<string>("");
 
-const socket = io("http://localhost:6969");
+const socket = io("http://localhost:6970");
 
 function handleSend() {
   socket.emit("message", text.value);
