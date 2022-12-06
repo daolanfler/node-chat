@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { io } from "socket.io-client";
+import { io, Socket } from "socket.io-client";
 import { onMounted, ref } from "vue";
 import { MemberItem, MsgItem } from "./types";
 import { socketUrl } from "./utils/useSocketUrl";
@@ -55,7 +55,18 @@ const socketId = ref<string>("");
 
 const curName = ref<string>("");
 
-const socket = io(socketUrl);
+let socket: Socket
+
+if (import.meta.env.DEV) {
+  socket = io(socketUrl)
+  console.log('in development mode, the socket url should be', socketUrl)
+} else {
+  console.log('in production mode, the socket url should be', socketUrl)
+  socket = io({
+    path: "/socket/"
+  })
+}
+
 
 function handleSend() {
   socket.emit("message", text.value);
