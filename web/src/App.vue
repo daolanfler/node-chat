@@ -33,7 +33,7 @@
         class="w-full h-full p-4 border-t-gray-200 border"
       />
       <button
-        class="right-0 absolute bottom-2 border border-gray-200 px-4 py-1 rounded"
+        class="right-0 absolute bottom-2 btn btn-sm btn-primary"
         @click="handleSend"
       >
         发送
@@ -46,6 +46,7 @@
 import { io } from "socket.io-client";
 import { onMounted, ref } from "vue";
 import { MemberItem, MsgItem } from "./types";
+import { socketUrl } from "./utils/useSocketUrl";
 
 const text = ref<string>("");
 const msgList = ref<MsgItem[]>([]);
@@ -54,7 +55,7 @@ const socketId = ref<string>("");
 
 const curName = ref<string>("");
 
-const socket = io("http://localhost:6970");
+const socket = io(socketUrl);
 
 function handleSend() {
   socket.emit("message", text.value);
