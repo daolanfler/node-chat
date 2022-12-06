@@ -2,7 +2,7 @@ name: Build & Deploy to DO VPS
 on:
   push:
     paths:
-      - "src/**"
+      - "web/**"
       - ".github/**"
     branches: [main]
 
