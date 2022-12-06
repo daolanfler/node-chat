@@ -45,7 +45,7 @@ jobs:
           rm: true
           source: "web/dist/*"
           target: "/var/www/chat.daolanfler.xyz/html/"
-          strip_components: 1
+          strip_components: 2
       # - name: Success bark notify
       #   uses: daolanfler/bark-action@v1
       #   with:
