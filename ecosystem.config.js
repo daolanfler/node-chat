@@ -4,9 +4,9 @@ module.exports = {
       name: "socket-chat-server",
       script: "cd server && npm run start",
     },
-    {
-      name: "socket-chat-web",
-      script: "cd web && npm run dev -- --host",
-    },
+    // {
+    //   name: "socket-chat-web",
+    //   script: "cd web && npm run dev -- --host",
+    // },
   ],
 };
